@@ -7,6 +7,8 @@ const TutorSchema = mongoose.Schema({
     lastName: String,
     photo: String,
     subjects: Array,
+    levels: Array,
+    languages: Array,
     price: Number,
     places: [
       {lat: Number, lon: Number}
