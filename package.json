@@ -1,0 +1,31 @@
+{
+  "name": "tutor_backend",
+  "version": "1.0.0",
+  "description": "Backend for tutor sute",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yaroslav-Melnychenko/tutor_backend.git"
+  },
+  "keywords": [
+    "Express",
+    "RestAPI",
+    "MongoDB",
+    "Mongoose",
+    "Notes"
+  ],
+  "author": "Yaroslav Melnychenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yaroslav-Melnychenko/tutor_backend/issues"
+  },
+  "homepage": "https://github.com/Yaroslav-Melnychenko/tutor_backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.3"
+  }
+}
