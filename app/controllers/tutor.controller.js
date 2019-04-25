@@ -20,9 +20,10 @@ exports.create = (req, res) => {
     photo: req.body.photo,
     subjects: req.body.subjects,
     levels: req.body.levels,
+    description: req.body.description,
     languages: req.body.languages,
     price: req.body.price,
-    places: req.body.places,
+    place: req.body.place,
     score: req.body.score
   });
 
@@ -49,9 +50,26 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single note with a noteId
+// Find a single tutor with a tutorId
 exports.findOne = (req, res) => {
-
+  Tutor.findById(req.params.tutorId)
+    .then(tutor => {
+        if(!tutor) {
+            return res.status(404).send({
+                message: "Tutor not found with id " + req.params.tutorId
+            });            
+        }
+        res.send(tutor);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Tutor not found with id " + req.params.tutorId
+            });                
+        }
+        return res.status(500).send({
+            message: "Error retrieving tutor with id " + req.params.tutorId
+        });
+    });
 };
 
 // Update a note identified by the noteId in the request
