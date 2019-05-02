@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 
 const TutorSchema = mongoose.Schema({
-    mail: String,
+    mail: {
+        type: String,
+        required: true,
+        minLength: 5,
+        maxLength: 255,
+    },
     password: String,
     firstName: String,
     lastName: String,
