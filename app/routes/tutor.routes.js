@@ -14,5 +14,8 @@ module.exports = (app) => {
   app.put('/tutors/:tutorId', tutors.update);
 
   // Delete a Note with noteId
-  app.delete('/tutors/:noteId', tutors.delete);
+  app.delete('/tutors/:tutorId', tutors.delete);
+
+  // Login user by email
+  app.get('/tutors/:tutorEmail', tutors.login);
 }

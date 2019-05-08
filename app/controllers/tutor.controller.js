@@ -81,3 +81,15 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
 
 };
+
+// Login user with email in request
+exports.login = (req, res) => {
+    Tutor.findOne({email: mail})
+    .then(tutors => {
+        res.send(tutors);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving tutor."
+        });
+    });
+}
