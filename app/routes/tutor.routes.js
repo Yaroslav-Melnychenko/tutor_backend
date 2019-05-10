@@ -17,5 +17,5 @@ module.exports = (app) => {
   app.delete('/tutors/:tutorId', tutors.delete);
 
   // Login user by email
-  app.get('/tutors/:tutorEmail', tutors.login);
+  app.post('/login', tutors.login);
 }

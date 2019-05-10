@@ -84,7 +84,18 @@ exports.delete = (req, res) => {
 
 // Login user with email in request
 exports.login = (req, res) => {
-    Tutor.findOne({email: mail})
+    Tutor.findOne({
+        mail: req.body.mail,
+        password: req.body.password
+    }, (err, result) => {
+        if (err) { console.log('handle err: ', err) }
+
+        if (result) {
+            console.log('we have a result: ', result);
+        } else {
+            console.log('we dont have a result: ', result);
+        }
+    })
     .then(tutors => {
         res.send(tutors);
     }).catch(err => {
