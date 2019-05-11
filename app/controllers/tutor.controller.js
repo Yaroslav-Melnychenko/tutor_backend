@@ -96,8 +96,8 @@ exports.login = (req, res) => {
             console.log('we dont have a result: ', result);
         }
     })
-    .then(tutors => {
-        res.send(tutors);
+    .then(tutor => {
+        res.send(tutor);
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while retrieving tutor."

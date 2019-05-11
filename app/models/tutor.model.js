@@ -12,6 +12,7 @@ const TutorSchema = mongoose.Schema({
         required: true,
         minLength: 5,
         maxLength: 255,
+        select: false
     },
     firstName: String,
     lastName: String,
