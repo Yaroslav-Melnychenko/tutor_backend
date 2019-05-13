@@ -1,3 +1,4 @@
+const { validateInput } = require('../assets/validators');
 const Tutor = require('../models/tutor.model.js');
 
 // Create and Save a new Note
@@ -87,17 +88,14 @@ exports.login = (req, res) => {
     Tutor.findOne({
         mail: req.body.mail,
         password: req.body.password
-    }, (err, result) => {
-        if (err) { console.log('handle err: ', err) }
-
-        if (result) {
-            console.log('we have a result: ', result);
-        } else {
-            console.log('we dont have a result: ', result);
-        }
     })
-    .then(tutors => {
-        res.send(tutors);
+    .then(tutor => {
+        const { errors, isValid } = validateInput(req.body);
+        if(!isValid) {
+            res.status(400).json(errors)
+        } else {
+            res.send(tutor);
+        }
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while retrieving tutor."
