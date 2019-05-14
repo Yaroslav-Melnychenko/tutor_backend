@@ -1,5 +1,6 @@
 const { validateInput } = require('../assets/validators');
 const Tutor = require('../models/tutor.model.js');
+const jwt = require('jsonwebtoken');
 
 // Create and Save a new Note
 exports.create = (req, res) => {
@@ -95,7 +96,10 @@ exports.login = (req, res) => {
             res.status(400).json(errors)
         } else {
             if(tutor) {
-                res.send(tutor);
+                const token = jwt.sign({
+                    ...tutor
+                }, 'somesecretkeyforjwt');
+                res.send({ token });
             } else {
                 res.status(401).send({
                     message: 'Неправильний логін або пароль'
