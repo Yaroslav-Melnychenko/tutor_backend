@@ -94,7 +94,13 @@ exports.login = (req, res) => {
         if(!isValid) {
             res.status(400).json(errors)
         } else {
-            res.send(tutor);
+            if(tutor) {
+                res.send(tutor);
+            } else {
+                res.status(401).send({
+                    message: 'Неправильний логін або пароль'
+                });
+            }
         }
     }).catch(err => {
         res.status(500).send({
