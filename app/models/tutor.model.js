@@ -17,6 +17,7 @@ const TutorSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     photo: String,
+    phone: String,
     subjects: Array,
     levels: Array,
     description: Array,

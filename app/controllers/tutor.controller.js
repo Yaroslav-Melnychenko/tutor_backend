@@ -20,6 +20,7 @@ exports.create = (req, res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     photo: req.body.photo,
+    phone: req.body.phone,
     subjects: req.body.subjects,
     levels: req.body.levels,
     description: req.body.description,
