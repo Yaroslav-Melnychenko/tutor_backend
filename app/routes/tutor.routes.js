@@ -10,7 +10,7 @@ module.exports = (app) => {
   // Retrieve a single Note with noteId
   app.get('/tutors/:tutorId', tutors.findOne);
 
-  // Update a Note with noteId
+  // Update a tutor with tutorId
   app.put('/tutors/:tutorId', tutors.update);
 
   // Delete a Note with noteId

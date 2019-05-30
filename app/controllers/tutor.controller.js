@@ -75,9 +75,23 @@ exports.findOne = (req, res) => {
     });
 };
 
-// Update a note identified by the noteId in the request
+// Update a note identified by the id in the request
 exports.update = (req, res) => {
-
+    Tutor.findById(req.params.tutorId, (err, tutor) => {
+        tutor.firstName = req.body.firstName,
+        tutor.lastName = req.body.lastName,
+        tutor.photo = req.body.photo,
+        tutor.phone = req.body.phone,
+        tutor.subjects = req.body.subjects,
+        tutor.levels = req.body.levels,
+        tutor.description = req.body.description,
+        tutor.languages = req.body.languages,
+        tutor.price = req.body.price,
+        tutor.place = req.body.place,
+        tutor.score = req.body.score
+        tutor.save()
+        res.json(tutor)
+    }) 
 };
 
 // Delete a note with the specified noteId in the request
