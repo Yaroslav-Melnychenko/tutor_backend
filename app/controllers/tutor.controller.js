@@ -90,7 +90,12 @@ exports.update = (req, res) => {
         tutor.place = req.body.place,
         tutor.score = req.body.score
         tutor.save()
-        res.json(tutor)
+        // res.json(tutor)
+        // console.log(tutor);
+        const token = jwt.sign({
+            ...tutor
+        }, 'somesecretkeyforjwt');
+        res.send({ token });
     }) 
 };
 
